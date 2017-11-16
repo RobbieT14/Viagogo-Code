@@ -25,7 +25,7 @@ class Viagogo
 // Prints out top 5 events which are located cloeset to the given coordinate
     for(int i=0; i<ClosestEvent.size(); i++)
     {
-      System.out.println("Event " + ClosestEvent.get(i).getID() + " " +ClosestEvent.get(i).getPrice() + " " +ClosestEvent.get(i).getDistance());
+      System.out.println("Event " + ClosestEvent.get(i).getID() + " $" +ClosestEvent.get(i).getPrice() + " " +ClosestEvent.get(i).getDistance());
     }
   }
 
