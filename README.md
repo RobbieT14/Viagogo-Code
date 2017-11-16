@@ -27,7 +27,7 @@ Assumptions:
 4. Number of tickets are not assigned to events
 4. Ticket returned is always the cheapest ticket
 5. Random number of events will be generated - possibility of having an event at every coordinate
-6. Error will not occur when user enters a coordinate outside of the range (-10 to 10) 
+6. Error will not be thrown when user input a coordinate which has more than 2 values
 
 
 How might you change your program if you needed to support multiple events at the
