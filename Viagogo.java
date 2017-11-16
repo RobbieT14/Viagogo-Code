@@ -9,11 +9,22 @@ class Viagogo
 
     addRandomEvent(c);
 
-// Allows user to input coordinate
+// Allows user to input coordinate between the range -10 to 10
+  boolean end = false;
+  String[] numbers = new String[2];
+  while(!end)
+  {
     Scanner input = new Scanner(System.in);
     System.out.println("Enter a coordinate (x and y separated by a space)");
     String line = input.nextLine();
-    String[] numbers = line.trim().split(" +");
+    numbers = line.trim().split(" +");
+    int c1 = Integer.parseInt(numbers[0]);
+    int c2 = Integer.parseInt(numbers[1]);
+    if(c1 >= -10 && c1 <= 10 && c2 >= -10 && c2 <=10) end = true;
+    if(!end)
+      System.out.println("Coordinates must be between -10 and 10");
+  }
+
     int[] integers = new int[numbers.length];
 // stores coordinate into integer array
     for(int i=0; i<numbers.length; i++)
