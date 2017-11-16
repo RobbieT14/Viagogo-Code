@@ -2,46 +2,45 @@ import java.util.*;
 
 class Coordinates
 {
-  final int x = 20;
-  final int y = 20;
+  final int x = 20; //x-coord size
+  final int y = 20; // y-coord size
 
-  private Event[][] world = new Event[x][y];
+  private Event[][] world = new Event[x][y]; // creates 20x20 2D array
 
-  public Coordinates()
-  {
-
-  }
-
+// Adds random generated event into the 2D array
   public void add(int x, int y, Event obj)
   {
     world[x][y] = obj;
   }
 
+// Finds the closest events from the inputted coordinate
   public ArrayList<Event> ClosestEvent(int[] coordinates)
   {
-    int[] userCoord = {(coordinates[0]+10), (10-coordinates[1])};
+    int[] userCoord = {(coordinates[0]+10), (10-coordinates[1])}; // algorithm to relate x,y coordinate to 2D array position
     ArrayList<int[]> actualEvents = new ArrayList<int[]>();
 
     for(int i=0; i<world.length; i++)
     {
       for(int j=0; j<world.length-1; j++)
       {
-        if(world[i][j] instanceof Event)
+        if(world[i][j] instanceof Event) // finds all events that exist in the 2D array
         {
           int[] a = {i,j};
-          actualEvents.add(a);
+          actualEvents.add(a); // stores positions of coordinate which has an Event
         }
       }
     }
-      int[] dist = new int[actualEvents.size()];
-      Event[] pos = new Event[actualEvents.size()];
+      int[] dist = new int[actualEvents.size()]; // keeps track of distance of coordinates
+      Event[] pos = new Event[actualEvents.size()]; // keeps track of position of coordinate for its calculated distance
 
       for(int i=0; i< actualEvents.size(); i++)
       {
-          dist[i] = Math.abs(actualEvents.get(i)[0]-userCoord[0]) + Math.abs(actualEvents.get(i)[1]-userCoord[1]);
+          dist[i] = Math.abs(actualEvents.get(i)[0]-userCoord[0]) + Math.abs(actualEvents.get(i)[1]-userCoord[1]); //Manhattan distance algorithm
           pos[i] = world[actualEvents.get(i)[0]][actualEvents.get(i)[1]];
         }
 
+
+// sorting of the distances 
       int n = dist.length;
       int temp = 0;
         Event tempEvent;
@@ -59,6 +58,7 @@ class Coordinates
                   dist[j] = temp;
                 }
 
+// Prints out first 5 events as they will be the closest after sorting
       ArrayList<Event> topFive = new ArrayList<Event>();
       for(int i=0; i<dist.length; i++)
       {

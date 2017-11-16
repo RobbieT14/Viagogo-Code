@@ -2,7 +2,7 @@ import java.text.DecimalFormat;
 
 class Event
 {
-  private int uniqueIdentifier;
+  private int uniqueIdentifier; // Event ID
   private int tickets;
   private double price;
   private int distance;
@@ -20,7 +20,7 @@ class Event
 
   public double getPrice()
   {
-    DecimalFormat twoDForm = new DecimalFormat("#.##");
+    DecimalFormat twoDForm = new DecimalFormat("#.##"); //2 decimal places
     return Double.valueOf(twoDForm.format(price));
   }
 
