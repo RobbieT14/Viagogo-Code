@@ -40,14 +40,14 @@ class Coordinates
         }
 
 
-// sorting of the distances 
+// sorting of the distances
       int n = dist.length;
       int temp = 0;
         Event tempEvent;
 
         for(int i=0; i < n; i++)
             for(int j=1; j < (n-i); j++)
-              if(dist[j-1] < dist[j])
+              if(dist[j-1] > dist[j])
                 {
                   tempEvent = pos[j-1];
                   //swap the elements descending
